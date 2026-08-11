@@ -1,1 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Sara Albert — Mathematician</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            color: #222;
+            background: #faf9f7;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1050px, 90%);
+            margin: auto;
+        }
+
+        /* Navigation */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(250, 249, 247, 0.94);
+            border-bottom: 1px solid #ddd;
+            backdrop-filter: blur(8px);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            font-size: 1.15rem;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: flex;
+            gap: 28px;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero */
+
+        .hero {
+            min-height: 78vh;
+            display: flex;
+            align-items: center;
+            padding: 90px 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .eyebrow {
+            font-family: Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.78rem;
+            color: #777;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 8vw, 6.5rem);
+            font-weight: normal;
+            line-height: 0.95;
+            margin-bottom: 28px;
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            max-width: 700px;
+            color: #555;
+        }
+
+        .math {
+            margin-top: 45px;
+            font-size: 1.1rem;
+            color: #777;
+            font-style: italic;
+        }
+
+        /* Sections */
+
+        section {
+            padding: 100px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            font-weight: normal;
+            margin-bottom: 45px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 70px;
+        }
+
+        .label {
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #777;
+        }
+
+        .research-text {
+            font-size: 1.15rem;
+        }
+
+        .research-list {
+            margin-top: 25px;
+            padding-left: 20px;
+        }
+
+        .research-list li {
+            margin-bottom: 8px;
+        }
+
+        /* Cards */
+
+        .item {
+            padding: 25px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        .item:last-child {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .item h3 {
+            font-size: 1.25rem;
+            font-weight: normal;
+            margin-bottom: 6px;
+        }
+
+        .item p {
+            color: #666;
+        }
+
+        .item a {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        /* Contact */
+
+        .contact {
+            font-size: 1.2rem;
+        }
+
+        .contact a {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 35px 0;
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+            .menu {
+                gap: 12px;
+                font-size: 0.78rem;
+            }
+
+            .hero {
+                min-height: 70vh;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            h1 {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Sara Albert</a>
+
+            <div class="menu">
+                <a href="#research">Research</a>
+                <a href="#publications">Publications</a>
+                <a href="#teaching">Teaching</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+
+                    <div class="eyebrow">Mathematician · Geometric Analysis</div>
+
+                    <h1>Sara<br>Albert</h1>
+
+                    <p>
+                        PhD researcher in mathematics working in geometric analysis
+                        and geometric flows.
+                    </p>
+
+                    <div class="math">
+                        “Geometry is the art of seeing the invisible.”
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- RESEARCH -->
+
+        <section id="research">
+            <div class="container">
+
+                <h2 class="section-title">Research</h2>
+
+                <div class="about-grid">
+
+                    <div>
+                        <div class="label">Research interests</div>
+                    </div>
+
+                    <div class="research-text">
+
+                        <p>
+                            My research lies in geometric analysis, with a particular
+                            focus on geometric evolution equations and curvature flows.
+                        </p>
+
+                        <ul class="research-list">
+                            <li>Curve Shortening Flow</li>
+                            <li>Mean Curvature Flow</li>
+                            <li>Volume-preserving geometric flows</li>
+                            <li>Flows on Riemannian and Hadamard manifolds</li>
+                            <li>Geometric inequalities and global constraints</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- PUBLICATIONS -->
+
+        <section id="publications">
+            <div class="container">
+
+                <h2 class="section-title">Publications & Preprints</h2>
+
+                <div class="item">
+                    <h3>Coming soon</h3>
+                    <p>
+                        Publications, preprints and links will be added here.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- TEACHING -->
+
+        <section id="teaching">
+            <div class="container">
+
+                <h2 class="section-title">Teaching</h2>
+
+                <div class="item">
+                    <h3>Mathematics</h3>
+                    <p>
+                        University teaching in mathematics, statistics and related subjects.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section id="contact">
+            <div class="container">
+
+                <h2 class="section-title">Contact</h2>
+
+                <div class="contact">
+
+                    <p>
+                        <a href="mailto:your.email@uv.es">
+                            your.email@uv.es
+                        </a>
+                    </p>
+
+                    <p>
+                        <a href="#">
+                            ORCID
+                        </a>
+                        &nbsp;·&nbsp;
+                        <a href="#">
+                            Google Scholar
+                        </a>
+                        &nbsp;·&nbsp;
+                        <a href="#">
+                            CV
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <footer>
+        <div class="container">
+            © 2026 Sara Albert
+        </div>
+    </footer>
+
+</body>
+</html>
