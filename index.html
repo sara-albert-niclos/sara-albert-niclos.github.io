@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Sara Albert — Mathematician</title>
 
+    <meta name="description"
+        content="Sara Albert — PhD researcher in Mathematics, working in geometric analysis and geometric flows.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:wght@400;500&display=swap"
+        rel="stylesheet">
+
     <style>
+
+        /* =========================================================
+           GENERAL
+        ========================================================= */
+
+        :root {
+            --paper: #f7f5f0;
+            --paper-dark: #eeeae2;
+            --ink: #20201e;
+            --muted: #77736d;
+            --line: #d9d5cd;
+            --accent: #8d514c;
+            --white: #ffffff;
+
+            --serif: "Playfair Display", Georgia, serif;
+            --sans: "DM Sans", Arial, sans-serif;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -18,9 +46,10 @@
         }
 
         body {
-            font-family: Georgia, "Times New Roman", serif;
-            color: #222;
-            background: #faf9f7;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--sans);
+            font-size: 15px;
             line-height: 1.7;
         }
 
@@ -29,356 +58,1796 @@
             text-decoration: none;
         }
 
-        .container {
-            width: min(1050px, 90%);
-            margin: auto;
+        img {
+            max-width: 100%;
+            display: block;
         }
 
-        /* Navigation */
+        ::selection {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .container {
+            width: min(1180px, 88%);
+            margin: 0 auto;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+
+            background: rgba(247, 245, 240, 0.88);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(217, 213, 205, 0.8);
+        }
 
         nav {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            background: rgba(250, 249, 247, 0.94);
-            border-bottom: 1px solid #ddd;
-            backdrop-filter: blur(8px);
-        }
+            min-height: 76px;
 
-        nav .container {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 18px 0;
+            justify-content: space-between;
         }
 
-        .logo {
+        .nav-name {
+            font-family: var(--serif);
             font-size: 1.15rem;
-            font-weight: bold;
+            letter-spacing: -0.02em;
         }
 
-        .menu {
+        .nav-links {
             display: flex;
-            gap: 28px;
-            font-family: Arial, sans-serif;
-            font-size: 0.9rem;
+            align-items: center;
+            gap: 30px;
+
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
 
-        .menu a:hover {
-            text-decoration: underline;
+        .nav-links a {
+            position: relative;
+            color: var(--muted);
+            transition: color 0.25s ease;
         }
 
-        /* Hero */
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+
+            width: 0;
+            height: 1px;
+
+            background: var(--accent);
+
+            transition: width 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--ink);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
 
         .hero {
-            min-height: 78vh;
+            min-height: 100vh;
+
             display: flex;
             align-items: center;
-            padding: 90px 0;
+
+            padding-top: 76px;
+
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-content {
-            max-width: 800px;
+            width: 100%;
+            padding: 100px 0 130px;
         }
 
         .eyebrow {
-            font-family: Arial, sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.78rem;
-            color: #777;
-            margin-bottom: 18px;
-        }
-
-        h1 {
-            font-size: clamp(3.5rem, 8vw, 6.5rem);
-            font-weight: normal;
-            line-height: 0.95;
             margin-bottom: 28px;
+
+            color: var(--accent);
+
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
         }
 
-        .hero p {
-            font-size: 1.35rem;
-            max-width: 700px;
-            color: #555;
+        .hero h1 {
+            font-family: var(--serif);
+            font-weight: 400;
+
+            font-size: clamp(4.5rem, 11vw, 10rem);
+            line-height: 0.88;
+            letter-spacing: -0.055em;
+
+            margin-left: -7px;
         }
 
-        .math {
-            margin-top: 45px;
-            font-size: 1.1rem;
-            color: #777;
-            font-style: italic;
+        .hero-subtitle {
+            margin-top: 50px;
+
+            max-width: 650px;
+
+            font-family: var(--serif);
+            font-size: clamp(1.35rem, 2.2vw, 2rem);
+            line-height: 1.35;
+
+            color: #45433f;
         }
 
-        /* Sections */
+        .hero-description {
+            margin-top: 24px;
+
+            max-width: 590px;
+
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .hero-mark {
+            position: absolute;
+
+            right: 7%;
+            bottom: 14%;
+
+            width: 180px;
+            height: 180px;
+
+            border: 1px solid rgba(141, 81, 76, 0.35);
+
+            border-radius: 50%;
+
+            animation: float 7s ease-in-out infinite;
+        }
+
+        .hero-mark::before {
+            content: "";
+
+            position: absolute;
+
+            width: 120px;
+            height: 120px;
+
+            left: 29px;
+            top: 29px;
+
+            border: 1px solid rgba(141, 81, 76, 0.25);
+
+            border-radius: 50%;
+        }
+
+        .hero-mark::after {
+            content: "";
+
+            position: absolute;
+
+            width: 230px;
+            height: 90px;
+
+            left: -25px;
+            top: 43px;
+
+            border: 1px solid rgba(141, 81, 76, 0.25);
+
+            border-radius: 50%;
+
+            transform: rotate(-28deg);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(4deg);
+            }
+        }
+
+        .scroll-note {
+            position: absolute;
+
+            bottom: 34px;
+            left: 6%;
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            color: var(--muted);
+
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .scroll-line {
+            width: 42px;
+            height: 1px;
+            background: var(--line);
+        }
+
+
+        /* =========================================================
+           SECTION STRUCTURE
+        ========================================================= */
 
         section {
-            padding: 100px 0;
-            border-top: 1px solid #ddd;
+            padding: 125px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .section-header {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 50px;
+
+            margin-bottom: 65px;
+        }
+
+        .section-number {
+            color: var(--accent);
+
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
         }
 
         .section-title {
-            font-size: 2.4rem;
-            font-weight: normal;
-            margin-bottom: 45px;
+            font-family: var(--serif);
+            font-weight: 400;
+
+            font-size: clamp(2.6rem, 5vw, 4.3rem);
+            line-height: 1;
+
+            letter-spacing: -0.04em;
         }
+
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 2fr;
+
+            grid-template-columns: 1fr 1.5fr;
+
+            gap: 100px;
+        }
+
+        .about-lead {
+            font-family: var(--serif);
+
+            font-size: 1.55rem;
+            line-height: 1.45;
+        }
+
+        .about-text {
+            color: #55514b;
+        }
+
+        .about-text p + p {
+            margin-top: 20px;
+        }
+
+        .affiliation {
+            margin-top: 35px;
+
+            padding-top: 25px;
+
+            border-top: 1px solid var(--line);
+        }
+
+        .small-label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: var(--muted);
+
+            font-size: 0.67rem;
+            text-transform: uppercase;
+            letter-spacing: 0.13em;
+        }
+
+
+        /* =========================================================
+           CURRENTLY
+        ========================================================= */
+
+        .currently {
+            background: var(--paper-dark);
+            border-top: none;
+        }
+
+        .currently-inner {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 50px;
+        }
+
+        .currently-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 70px;
         }
 
-        .label {
-            font-family: Arial, sans-serif;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #777;
+        .currently-main {
+            font-family: var(--serif);
+            font-size: 1.7rem;
+            line-height: 1.45;
         }
 
-        .research-text {
+        .currently-details {
+            color: var(--muted);
+        }
+
+
+        /* =========================================================
+           RESEARCH
+        ========================================================= */
+
+        .research-intro {
+            max-width: 780px;
+
+            font-family: var(--serif);
+            font-size: 1.55rem;
+            line-height: 1.5;
+
+            margin-bottom: 75px;
+        }
+
+        .research-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 0;
+
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .research-item {
+            padding: 38px 35px 42px;
+
+            border-right: 1px solid var(--line);
+        }
+
+        .research-item:first-child {
+            padding-left: 0;
+        }
+
+        .research-item:last-child {
+            border-right: none;
+            padding-right: 0;
+        }
+
+        .research-item-number {
+            color: var(--accent);
+
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+        }
+
+        .research-item h3 {
+            margin: 28px 0 17px;
+
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            font-weight: 400;
+        }
+
+        .research-item p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+
+        /* =========================================================
+           PHOTO MOMENT
+        ========================================================= */
+
+        .moment {
+            padding: 110px 0;
+
+            border-top: 1px solid var(--line);
+        }
+
+        .moment-grid {
+            display: grid;
+
+            grid-template-columns: 1.25fr 0.75fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .moment.reverse .moment-grid {
+            grid-template-columns: 0.75fr 1.25fr;
+        }
+
+        .moment.reverse .moment-image {
+            order: 2;
+        }
+
+        .moment.reverse .moment-text {
+            order: 1;
+        }
+
+        .moment-image {
+            aspect-ratio: 4 / 3;
+
+            background: #e5e1d9;
+
+            overflow: hidden;
+        }
+
+        .moment-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform 0.7s ease;
+        }
+
+        .moment-image:hover img {
+            transform: scale(1.025);
+        }
+
+        .placeholder-image {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #aaa59c;
+
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-style: italic;
+        }
+
+        .moment-date {
+            margin-bottom: 16px;
+
+            color: var(--accent);
+
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.13em;
+        }
+
+        .moment-title {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 400;
+
+            line-height: 1.2;
+
+            margin-bottom: 17px;
+        }
+
+        .moment-description {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+
+        /* =========================================================
+           PUBLICATIONS
+        ========================================================= */
+
+        .publication {
+            display: grid;
+
+            grid-template-columns: 90px 1fr auto;
+
+            gap: 35px;
+
+            padding: 30px 0;
+
+            border-top: 1px solid var(--line);
+
+            align-items: start;
+        }
+
+        .publication:last-child {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .publication-year {
+            color: var(--accent);
+
+            font-family: var(--serif);
+            font-size: 1.1rem;
+        }
+
+        .publication-title {
+            font-family: var(--serif);
+            font-size: 1.25rem;
+
+            line-height: 1.35;
+        }
+
+        .publication-authors {
+            margin-top: 7px;
+
+            color: var(--muted);
+            font-size: 0.82rem;
+        }
+
+        .publication-links {
+            display: flex;
+            gap: 16px;
+
+            color: var(--muted);
+
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .publication-links a:hover {
+            color: var(--accent);
+        }
+
+
+        /* =========================================================
+           TALKS
+        ========================================================= */
+
+        .talk {
+            display: grid;
+
+            grid-template-columns: 90px 1fr 160px;
+
+            gap: 35px;
+
+            padding: 27px 0;
+
+            border-top: 1px solid var(--line);
+        }
+
+        .talk:last-child {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .talk-year {
+            color: var(--accent);
+            font-family: var(--serif);
+        }
+
+        .talk-title {
+            font-family: var(--serif);
             font-size: 1.15rem;
         }
 
-        .research-list {
-            margin-top: 25px;
-            padding-left: 20px;
+        .talk-place {
+            margin-top: 4px;
+
+            color: var(--muted);
+            font-size: 0.82rem;
         }
 
-        .research-list li {
-            margin-bottom: 8px;
+        .talk-type {
+            color: var(--muted);
+
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
 
-        /* Cards */
 
-        .item {
-            padding: 25px 0;
-            border-top: 1px solid #ddd;
+        /* =========================================================
+           TEACHING
+        ========================================================= */
+
+        .teaching-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 80px;
         }
 
-        .item:last-child {
-            border-bottom: 1px solid #ddd;
+        .teaching-intro {
+            font-family: var(--serif);
+            font-size: 1.55rem;
+            line-height: 1.45;
         }
 
-        .item h3 {
-            font-size: 1.25rem;
-            font-weight: normal;
-            margin-bottom: 6px;
+        .teaching-list {
+            border-top: 1px solid var(--line);
         }
 
-        .item p {
-            color: #666;
+        .teaching-item {
+            padding: 22px 0;
+            border-bottom: 1px solid var(--line);
         }
 
-        .item a {
-            text-decoration: underline;
-            text-underline-offset: 3px;
+        .teaching-item strong {
+            font-family: var(--serif);
+            font-size: 1.05rem;
+            font-weight: 400;
         }
 
-        /* Contact */
+        .teaching-item span {
+            display: block;
+
+            margin-top: 4px;
+
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+
+        /* =========================================================
+           CV
+        ========================================================= */
+
+        .cv-section {
+            background: var(--paper-dark);
+        }
+
+        .cv-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 100px;
+        }
+
+        .cv-lead {
+            font-family: var(--serif);
+            font-size: 1.7rem;
+            line-height: 1.4;
+        }
+
+        .cv-button {
+            display: inline-flex;
+
+            margin-top: 35px;
+            padding: 13px 23px;
+
+            border: 1px solid var(--ink);
+
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease;
+        }
+
+        .cv-button:hover {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
 
         .contact {
-            font-size: 1.2rem;
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 100px;
         }
 
-        .contact a {
-            text-decoration: underline;
-            text-underline-offset: 4px;
+        .contact-lead {
+            font-family: var(--serif);
+            font-size: 2.3rem;
+            line-height: 1.3;
         }
 
-        /* Footer */
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+
+            gap: 13px;
+        }
+
+        .contact-links a {
+            padding-bottom: 10px;
+
+            border-bottom: 1px solid var(--line);
+
+            color: var(--muted);
+
+            transition: color 0.2s ease;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent);
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
 
         footer {
-            padding: 35px 0;
-            font-family: Arial, sans-serif;
-            font-size: 0.8rem;
-            color: #777;
+            padding: 30px 0;
+
+            border-top: 1px solid var(--line);
+
+            color: var(--muted);
+
+            font-size: 0.68rem;
         }
 
-        /* Mobile */
+        .footer-inner {
+            display: flex;
 
-        @media (max-width: 700px) {
-            .menu {
-                gap: 12px;
-                font-size: 0.78rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        /* =========================================================
+           ANIMATIONS
+        ========================================================= */
+
+        .fade-in {
+            animation: fadeIn 1s ease both;
+        }
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
             }
 
-            .hero {
-                min-height: 70vh;
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 850px) {
+
+            .container {
+                width: 88%;
             }
 
-            .about-grid {
+            .nav-links {
+                gap: 13px;
+                font-size: 0.62rem;
+            }
+
+            .nav-name {
+                font-size: 1rem;
+            }
+
+            .hero-mark {
+                opacity: 0.45;
+                right: -40px;
+            }
+
+            .section-header {
                 grid-template-columns: 1fr;
-                gap: 25px;
+                gap: 15px;
+            }
+
+            .about-grid,
+            .currently-content,
+            .teaching-grid,
+            .cv-grid,
+            .contact {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .research-item,
+            .research-item:first-child,
+            .research-item:last-child {
+                padding: 35px 0;
+                border-right: none;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .research-item:last-child {
+                border-bottom: none;
+            }
+
+            .moment-grid,
+            .moment.reverse .moment-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .moment.reverse .moment-image {
+                order: 1;
+            }
+
+            .moment.reverse .moment-text {
+                order: 2;
+            }
+
+            .publication {
+                grid-template-columns: 60px 1fr;
+                gap: 20px;
+            }
+
+            .publication-links {
+                grid-column: 2;
+            }
+
+            .talk {
+                grid-template-columns: 60px 1fr;
+                gap: 20px;
+            }
+
+            .talk-type {
+                grid-column: 2;
+            }
+
+            .hero h1 {
+                font-size: clamp(4rem, 18vw, 7rem);
+            }
+
+            .hero-subtitle {
+                margin-top: 38px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+
+
+        @media (max-width: 520px) {
+
+            .nav-links a:nth-child(4) {
+                display: none;
+            }
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .hero-content {
+                padding: 80px 0 110px;
+            }
+
+            .hero-mark {
+                width: 130px;
+                height: 130px;
+                bottom: 12%;
+            }
+
+            .hero-mark::before {
+                width: 86px;
+                height: 86px;
+                left: 21px;
+                top: 21px;
+            }
+
+            .hero-mark::after {
+                width: 170px;
+                height: 65px;
+                left: -20px;
+                top: 31px;
             }
 
             section {
-                padding: 70px 0;
-            }
-
-            h1 {
-                font-size: 4rem;
+                padding: 90px 0;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <nav>
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================= -->
+
+    <header>
+
         <div class="container">
-            <a href="#" class="logo">Sara Albert</a>
 
-            <div class="menu">
-                <a href="#research">Research</a>
-                <a href="#publications">Publications</a>
-                <a href="#teaching">Teaching</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-    </nav>
+            <nav>
 
+                <a href="#top" class="nav-name">
+                    Sara Albert
+                </a>
 
-    <main>
+                <div class="nav-links">
 
-        <!-- HERO -->
-
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-
-                    <div class="eyebrow">Mathematician · Geometric Analysis</div>
-
-                    <h1>Sara<br>Albert</h1>
-
-                    <p>
-                        PhD researcher in mathematics working in geometric analysis
-                        and geometric flows.
-                    </p>
-
-                    <div class="math">
-                        “Geometry is the art of seeing the invisible.”
-                    </div>
+                    <a href="#about">About</a>
+                    <a href="#research">Research</a>
+                    <a href="#publications">Publications</a>
+                    <a href="#talks">Talks</a>
+                    <a href="#teaching">Teaching</a>
+                    <a href="#cv">CV</a>
 
                 </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <main id="top">
+
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section class="hero">
+
+            <div class="container">
+
+                <div class="hero-content fade-in">
+
+                    <div class="eyebrow">
+                        Mathematician · Geometric Analysis
+                    </div>
+
+                    <h1>
+                        Sara<br>
+                        Albert
+                    </h1>
+
+                    <div class="hero-subtitle">
+                        Geometric analysis, curvature flows
+                        and geometric evolution equations.
+                    </div>
+
+                    <p class="hero-description">
+                        PhD researcher in Mathematics working on
+                        geometric flows and global geometric constraints.
+                    </p>
+
+                </div>
+
             </div>
+
+
+            <div class="hero-mark"></div>
+
+            <div class="scroll-note">
+
+                <span class="scroll-line"></span>
+
+                Scroll to explore
+
+            </div>
+
         </section>
 
 
-        <!-- RESEARCH -->
 
-        <section id="research">
+        <!-- =====================================================
+             ABOUT
+        ====================================================== -->
+
+        <section id="about">
+
             <div class="container">
 
-                <h2 class="section-title">Research</h2>
+                <div class="section-header">
+
+                    <div class="section-number">
+                        01 / About
+                    </div>
+
+                    <h2 class="section-title">
+                        About
+                    </h2>
+
+                </div>
+
 
                 <div class="about-grid">
 
                     <div>
-                        <div class="label">Research interests</div>
-                    </div>
 
-                    <div class="research-text">
-
-                        <p>
-                            My research lies in geometric analysis, with a particular
-                            focus on geometric evolution equations and curvature flows.
+                        <p class="about-lead">
+                            I am a mathematician working in
+                            geometric analysis and geometric flows.
                         </p>
 
-                        <ul class="research-list">
-                            <li>Curve Shortening Flow</li>
-                            <li>Mean Curvature Flow</li>
-                            <li>Volume-preserving geometric flows</li>
-                            <li>Flows on Riemannian and Hadamard manifolds</li>
-                            <li>Geometric inequalities and global constraints</li>
-                        </ul>
+                    </div>
+
+
+                    <div class="about-text">
+
+                        <p>
+                            I am currently a PhD researcher in Mathematics,
+                            interested in the study of geometric evolution
+                            equations and curvature-driven phenomena.
+                        </p>
+
+                        <p>
+                            My research focuses on understanding how geometric
+                            quantities evolve under constrained curvature flows,
+                            with particular attention to global properties
+                            and geometric inequalities.
+                        </p>
+
+                        <div class="affiliation">
+
+                            <span class="small-label">
+                                Affiliation
+                            </span>
+
+                            <p>
+                                Universitat de València
+                            </p>
+
+                            <p style="color: var(--muted); font-size: 0.85rem;">
+                                Department of Mathematics
+                            </p>
+
+                        </div>
 
                     </div>
 
                 </div>
+
             </div>
+
         </section>
 
 
-        <!-- PUBLICATIONS -->
+
+        <!-- =====================================================
+             CURRENTLY
+        ====================================================== -->
+
+        <section class="currently">
+
+            <div class="container">
+
+                <div class="currently-inner">
+
+                    <div class="section-number">
+                        Currently
+                    </div>
+
+
+                    <div class="currently-content">
+
+                        <div class="currently-main">
+
+                            PhD researcher in Mathematics,
+                            working on geometric flows and
+                            curvature evolution.
+
+                        </div>
+
+
+                        <div class="currently-details">
+
+                            <span class="small-label">
+                                Research
+                            </span>
+
+                            Geometric analysis · Curvature flows ·
+                            Global constraints
+
+                            <br><br>
+
+                            <span class="small-label">
+                                Based in
+                            </span>
+
+                            València, Spain
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             RESEARCH
+        ====================================================== -->
+
+        <section id="research">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-number">
+                        02 / Research
+                    </div>
+
+                    <h2 class="section-title">
+                        Research
+                    </h2>
+
+                </div>
+
+
+                <p class="research-intro">
+
+                    My research lies in geometric analysis,
+                    with a particular focus on geometric evolution
+                    equations, curvature flows and the interaction
+                    between local curvature and global constraints.
+
+                </p>
+
+
+                <div class="research-grid">
+
+
+                    <div class="research-item">
+
+                        <div class="research-item-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Curvature flows
+                        </h3>
+
+                        <p>
+                            Curve Shortening Flow, Mean Curvature Flow
+                            and related geometric evolution equations.
+                        </p>
+
+                    </div>
+
+
+                    <div class="research-item">
+
+                        <div class="research-item-number">
+                            02
+                        </div>
+
+                        <h3>
+                            Global constraints
+                        </h3>
+
+                        <p>
+                            Area-, length- and volume-preserving flows,
+                            and the role of global geometric quantities.
+                        </p>
+
+                    </div>
+
+
+                    <div class="research-item">
+
+                        <div class="research-item-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Geometric analysis
+                        </h3>
+
+                        <p>
+                            Geometric inequalities, Riemannian geometry
+                            and flows on curved ambient spaces.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PHOTO MOMENT 01
+        ====================================================== -->
+
+        <section class="moment">
+
+            <div class="container">
+
+                <div class="moment-grid">
+
+
+                    <div class="moment-image">
+
+                        <!--
+                        REPLACE THIS DIV WITH AN IMAGE LATER.
+
+                        Example:
+
+                        <img src="images/stockholm.jpg"
+                             alt="Geometric Analysis Conference, Stockholm, 2026">
+                        -->
+
+                        <div class="placeholder-image">
+                            Your conference photo
+                        </div>
+
+                    </div>
+
+
+                    <div class="moment-text">
+
+                        <div class="moment-date">
+                            Stockholm · 2026
+                        </div>
+
+                        <h3 class="moment-title">
+                            Conferences &amp; research
+                        </h3>
+
+                        <p class="moment-description">
+                            A place for the mathematical conversations,
+                            ideas and collaborations that happen around
+                            research.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PUBLICATIONS
+        ====================================================== -->
 
         <section id="publications">
+
             <div class="container">
 
-                <h2 class="section-title">Publications & Preprints</h2>
+                <div class="section-header">
 
-                <div class="item">
-                    <h3>Coming soon</h3>
-                    <p>
-                        Publications, preprints and links will be added here.
-                    </p>
+                    <div class="section-number">
+                        03 / Publications
+                    </div>
+
+                    <h2 class="section-title">
+                        Publications
+                    </h2>
+
                 </div>
 
+
+                <!-- Replace these examples with your real papers -->
+
+
+                <div class="publication">
+
+                    <div class="publication-year">
+                        2026
+                    </div>
+
+                    <div>
+
+                        <div class="publication-title">
+                            Title of your paper
+                        </div>
+
+                        <div class="publication-authors">
+                            Sara Albert, Coauthor
+                        </div>
+
+                    </div>
+
+                    <div class="publication-links">
+
+                        <a href="#" target="_blank">
+                            Preprint
+                        </a>
+
+                        <a href="#" target="_blank">
+                            PDF
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="publication">
+
+                    <div class="publication-year">
+                        2025
+                    </div>
+
+                    <div>
+
+                        <div class="publication-title">
+                            Another publication or preprint
+                        </div>
+
+                        <div class="publication-authors">
+                            Sara Albert, Coauthor
+                        </div>
+
+                    </div>
+
+                    <div class="publication-links">
+
+                        <a href="#" target="_blank">
+                            arXiv
+                        </a>
+
+                    </div>
+
+                </div>
+
+
             </div>
+
         </section>
 
 
-        <!-- TEACHING -->
+
+        <!-- =====================================================
+             PHOTO MOMENT 02
+        ====================================================== -->
+
+        <section class="moment reverse">
+
+            <div class="container">
+
+                <div class="moment-grid">
+
+
+                    <div class="moment-image">
+
+                        <div class="placeholder-image">
+                            Your poster / seminar photo
+                        </div>
+
+                    </div>
+
+
+                    <div class="moment-text">
+
+                        <div class="moment-date">
+                            Research life
+                        </div>
+
+                        <h3 class="moment-title">
+                            Beyond the papers
+                        </h3>
+
+                        <p class="moment-description">
+                            Seminars, schools, conferences, posters
+                            and research visits are an important part
+                            of mathematical life.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             TALKS
+        ====================================================== -->
+
+        <section id="talks">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-number">
+                        04 / Talks
+                    </div>
+
+                    <h2 class="section-title">
+                        Talks &amp; Conferences
+                    </h2>
+
+                </div>
+
+
+                <div class="talk">
+
+                    <div class="talk-year">
+                        2026
+                    </div>
+
+                    <div>
+
+                        <div class="talk-title">
+                            Title of your talk
+                        </div>
+
+                        <div class="talk-place">
+                            Conference / University · Location
+                        </div>
+
+                    </div>
+
+                    <div class="talk-type">
+                        Contributed talk
+                    </div>
+
+                </div>
+
+
+                <div class="talk">
+
+                    <div class="talk-year">
+                        2026
+                    </div>
+
+                    <div>
+
+                        <div class="talk-title">
+                            Geometric Analysis Seminar
+                        </div>
+
+                        <div class="talk-place">
+                            University · Location
+                        </div>
+
+                    </div>
+
+                    <div class="talk-type">
+                        Seminar
+                    </div>
+
+                </div>
+
+
+                <div class="talk">
+
+                    <div class="talk-year">
+                        2025
+                    </div>
+
+                    <div>
+
+                        <div class="talk-title">
+                            Title of another talk
+                        </div>
+
+                        <div class="talk-place">
+                            Conference · Location
+                        </div>
+
+                    </div>
+
+                    <div class="talk-type">
+                        Poster
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             TEACHING
+        ====================================================== -->
 
         <section id="teaching">
+
             <div class="container">
 
-                <h2 class="section-title">Teaching</h2>
+                <div class="section-header">
 
-                <div class="item">
-                    <h3>Mathematics</h3>
-                    <p>
-                        University teaching in mathematics, statistics and related subjects.
-                    </p>
+                    <div class="section-number">
+                        05 / Teaching
+                    </div>
+
+                    <h2 class="section-title">
+                        Teaching
+                    </h2>
+
+                </div>
+
+
+                <div class="teaching-grid">
+
+
+                    <div class="teaching-intro">
+
+                        I enjoy teaching mathematics and
+                        creating clear and accessible material
+                        for university students.
+
+                    </div>
+
+
+                    <div class="teaching-list">
+
+
+                        <div class="teaching-item">
+
+                            <strong>
+                                Mathematics I
+                            </strong>
+
+                            <span>
+                                Undergraduate teaching
+                            </span>
+
+                        </div>
+
+
+                        <div class="teaching-item">
+
+                            <strong>
+                                Mathematics II
+                            </strong>
+
+                            <span>
+                                Undergraduate teaching
+                            </span>
+
+                        </div>
+
+
+                        <div class="teaching-item">
+
+                            <strong>
+                                Statistics
+                            </strong>
+
+                            <span>
+                                Undergraduate teaching
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
                 </div>
 
             </div>
+
         </section>
 
 
-        <!-- CONTACT -->
 
-        <section id="contact">
+        <!-- =====================================================
+             CV
+        ====================================================== -->
+
+        <section id="cv" class="cv-section">
+
             <div class="container">
 
-                <h2 class="section-title">Contact</h2>
+                <div class="section-header">
+
+                    <div class="section-number">
+                        06 / CV
+                    </div>
+
+                    <h2 class="section-title">
+                        Curriculum
+                    </h2>
+
+                </div>
+
+
+                <div class="cv-grid">
+
+
+                    <div class="cv-lead">
+
+                        A short overview of my academic
+                        background, research experience,
+                        teaching and professional activities.
+
+                        <br>
+
+                        <a href="cv.pdf" class="cv-button" target="_blank">
+                            View CV
+                        </a>
+
+                    </div>
+
+
+                    <div class="about-text">
+
+                        <span class="small-label">
+                            Academic background
+                        </span>
+
+                        PhD in Mathematics
+
+                        <br><br>
+
+                        <span class="small-label">
+                            Research
+                        </span>
+
+                        Geometric analysis and geometric flows
+
+                        <br><br>
+
+                        <span class="small-label">
+                            Teaching
+                        </span>
+
+                        University mathematics and statistics
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             CONTACT
+        ====================================================== -->
+
+        <section id="contact">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-number">
+                        Contact
+                    </div>
+
+                    <h2 class="section-title">
+                        Get in touch
+                    </h2>
+
+                </div>
+
 
                 <div class="contact">
 
-                    <p>
-                        <a href="mailto:your.email@uv.es">
-                            your.email@uv.es
-                        </a>
-                    </p>
 
-                    <p>
-                        <a href="#">
+                    <div class="contact-lead">
+
+                        For research questions,
+                        collaborations or
+                        mathematical conversations.
+
+                    </div>
+
+
+                    <div class="contact-links">
+
+                        <!-- CHANGE THESE LINKS -->
+
+                        <a href="mailto:YOUR.EMAIL@uv.es">
+                            Email
+                        </a>
+
+                        <a href="#" target="_blank">
                             ORCID
                         </a>
-                        &nbsp;·&nbsp;
-                        <a href="#">
+
+                        <a href="#" target="_blank">
                             Google Scholar
                         </a>
-                        &nbsp;·&nbsp;
-                        <a href="#">
-                            CV
+
+                        <a href="https://github.com/sara-albert-niclos"
+                           target="_blank">
+                            GitHub
                         </a>
-                    </p>
+
+                    </div>
+
 
                 </div>
 
             </div>
+
         </section>
+
 
     </main>
 
 
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
     <footer>
+
         <div class="container">
-            © 2026 Sara Albert
+
+            <div class="footer-inner">
+
+                <span>
+                    © 2026 Sara Albert
+                </span>
+
+                <span>
+                    Mathematics · Geometric Analysis
+                </span>
+
+            </div>
+
         </div>
+
     </footer>
 
+
 </body>
+
 </html>
