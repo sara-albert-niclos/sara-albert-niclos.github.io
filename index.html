@@ -285,18 +285,19 @@
 
 
         .eyebrow {
-
+        
             margin-bottom: 25px;
-
+        
             color: var(--accent);
-
-            font-size: 0.7rem;
-
+        
+            font-weight: 500;
+        
+            font-size: 0.72rem;
+        
             text-transform: uppercase;
-
-            letter-spacing: 0.16em;
+        
+            letter-spacing: 0.17em;
         }
-
 
         .hero h1 {
 
@@ -1013,27 +1014,29 @@
             line-height: 1.4;
         }
 
-
         .cv-button {
 
             display: inline-flex;
-
+        
             margin-top: 35px;
-
+        
             padding: 13px 23px;
-
-            border: 1px solid var(--ink);
-
+        
+            border: 1px solid var(--accent);
+        
+            color: var(--accent);
+        
             font-size: 0.72rem;
-
+        
             text-transform: uppercase;
-
+        
             letter-spacing: 0.1em;
-
+        
             transition:
                 background 0.25s ease,
                 color 0.25s ease;
         }
+
 
 
         .cv-button:hover {
@@ -1263,12 +1266,30 @@
             .hero h1 {
 
                 font-size: clamp(3.5rem, 15vw, 6rem);
-            }
 
+                position: relative;
+            }
+            
+            .hero h1::after {
+            
+                content: "";
+            
+                display: block;
+            
+                width: 58px;
+            
+                height: 2px;
+            
+                margin-top: 28px;
+            
+                background: var(--accent);
+            }
 
             .hero-subtitle {
 
                 margin-top: 35px;
+
+                position: relative;
             }
         }
 
