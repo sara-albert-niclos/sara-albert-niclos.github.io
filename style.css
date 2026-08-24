@@ -309,10 +309,9 @@ nav {
 }
 
 .about-card-title {
-    max-width: 480px;
     font-family: var(--serif);
-    font-size: clamp(1.45rem, 2.3vw, 2rem);
-    line-height: 1.4;
+    font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+    line-height: 1.5;
 }
 
 .about-card-details {
