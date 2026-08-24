@@ -185,7 +185,6 @@ nav {
     overflow: hidden;
     opacity: 0.92;
     border: 1px solid var(--accent);
-    box-shadow: -12px 12px 0 var(--accent-soft);
 }
 
 .hero-photo img {
@@ -278,7 +277,8 @@ nav {
     aspect-ratio: 1 / 1;
     padding: 38px;
     background: color-mix(in srgb, var(--paper-dark) 78%, var(--paper));
-    border: 1px solid var(--line);
+    border: none;
+    border-top: 3px solid var(--accent);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -286,7 +286,8 @@ nav {
 
 .about-card.accent {
     background: color-mix(in srgb, var(--paper-dark) 78%, var(--paper));
-    border-color: color-mix(in srgb, var(--accent) 42%, var(--line));
+    border: none;
+    border-top: 3px solid var(--accent);
     position: relative;
 }
 
@@ -664,12 +665,7 @@ footer {
     border-color: var(--accent);
 }
 
-.about-card.accent::after {
-    width: 82px;
-    height: 3px;
-    margin-top: 28px;
-    background: var(--accent);
-}
+
 
 .about-card .small-label {
     letter-spacing: 0.16em;
@@ -692,12 +688,3 @@ footer {
     position: relative;
 }
 
-.hero-accent-mark::after {
-    content: "";
-    position: absolute;
-    right: -22px;
-    top: -4px;
-    width: 12px;
-    height: 12px;
-    border: 1px solid var(--accent);
-}
